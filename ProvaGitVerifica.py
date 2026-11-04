@@ -34,6 +34,14 @@ class Scuola:
         return [s for s in self.studenti.values() if s.esito() == "RISERVA"]
 
 
+    def stampa_media(self) -> float:
+        if not self.studenti:
+            return 0.0
+        # Somma tutte le medie e divide per il numero di studenti
+        totale = sum(s.media_voti for s in self.studenti.values())
+        return totale / len(self.studenti)
+        
+        
 def menu() -> None:
     scuola = Scuola("ITIS Volta")
 
